@@ -9,8 +9,13 @@ const MovieDetail = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const data = await fetchMovieDetail(id);
-      setMovie(data);
+      try {
+        const data = await fetchMovieDetail(id);
+        setMovie(data);
+      } catch (error) {
+        console.error("영화 상세 불러오기 실패:", error);
+        setMovie(null); 
+      }
     };
     getData();
   }, [id]);
