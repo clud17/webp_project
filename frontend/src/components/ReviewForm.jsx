@@ -74,7 +74,7 @@ const ReviewForm = ({ movieId }) => {
     const updated = reviews.filter(r => r.id !== id);
     setReviews(updated);
     if (updated.length === 0) {
-    localStorage.removeItem(localKey);
+      localStorage.removeItem(localKey);
     } else {
       localStorage.setItem(localKey, JSON.stringify(updated));
     }
